@@ -35,7 +35,7 @@ public class MainActivityViewModel extends AndroidViewModel {
         if(usuario!= null){
             usuarioMutable.setValue(usuario);
         }else{
-            Toast.makeText(getApplication(),"Error, usuario o contraseña incorrecto",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplication(),"Error, usuario o contraseña incorrecto "+email+".."+password+" usuario: "+usuario,Toast.LENGTH_LONG).show();
         }
     }
 }

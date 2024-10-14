@@ -105,7 +105,7 @@ public class RegistroActivity extends AppCompatActivity {
         }
     }
 
-    //Este método es llamado automáticamente cuando retorna de la cámara.
+    // método es llamado automáticamente cuando retorna de la cámara.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

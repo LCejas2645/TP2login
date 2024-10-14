@@ -18,22 +18,22 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.util.List;
 
 public class Api {
-    public static void guardarUsuario(Context context, Usuario usuario){
+    public static void guardarUsuario(Context context, Usuario usuarios){
 
-        File archivo=new File(context.getFilesDir(),"fichero.dat");
+        File archivo=new File(context.getFilesDir(),"usuario.obj");
 
         if(archivo.length()==0){
             try {
                 FileOutputStream fos=new FileOutputStream(archivo,false);
                 BufferedOutputStream bos=new BufferedOutputStream(fos);
                 ObjectOutputStream oos=new ObjectOutputStream(bos);
-                oos.writeObject(usuario);
+                oos.writeObject(usuarios);
 
                 bos.flush();
                 fos.close();
-                usuario=null;
 
                 Toast.makeText(context,"Dato guardado",Toast.LENGTH_LONG).show();
 
@@ -49,13 +49,12 @@ public class Api {
                 FileOutputStream fos=new FileOutputStream(archivo,true);
                 BufferedOutputStream bos=new BufferedOutputStream(fos);
                 MyObjectOutputStream oos=new MyObjectOutputStream(bos);
-                oos.writeObject(usuario);
+                oos.writeObject(usuarios);
 
                 bos.flush();
                 fos.close();
-                usuario=null;
 
-                Toast.makeText(context,"Dato guardado",Toast.LENGTH_LONG).show();
+                Toast.makeText(context,"Dato guardado 2",Toast.LENGTH_LONG).show();
             } catch (FileNotFoundException e) {
                 Toast.makeText(context,"Error al acceder al archivo",Toast.LENGTH_LONG).show();
             } catch (IOException e) {
@@ -83,7 +82,7 @@ public class Api {
 
     public static Usuario login(Context context, String mail, String pass){
         StringBuilder sb=new StringBuilder();
-        File archivo=new File(context.getFilesDir(),"fichero.dat");
+        File archivo=new File(context.getFilesDir(),"usuario.obj");
         //Nodo
         Usuario usuario = null;
         try {

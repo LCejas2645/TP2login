@@ -49,11 +49,11 @@ public class RegistroActivityViewModel extends AndroidViewModel {
     }
 
     public void recuperarUsuario(Usuario usuario){
-
         if(usuario != null) {
             usuarioMutable.setValue(usuario);
         }
     }
+
     public void respuetaDeCamara(int requestCode, int resultCode, @Nullable Intent data, int REQUEST_IMAGE_CAPTURE){
         Log.d("salida",requestCode+"");
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
