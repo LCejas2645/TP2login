@@ -8,15 +8,37 @@ public class Usuario implements Serializable {
     private String apellido;
     private String mail;
     private String password;
+    private String imagen;
 
     public Usuario() {}
 
-    public Usuario(long dni, String nombre, String apellido, String mail, String password) {
+    public Usuario(long dni, String nombre, String apellido, String mail, String password, String imagen) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.mail = mail;
         this.password = password;
+        this.imagen = imagen;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "dni=" + dni +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", mail='" + mail + '\'' +
+                ", password='" + password + '\'' +
+                ", imagen='" + imagen + '\'' +
+                '}';
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public long getDni() {

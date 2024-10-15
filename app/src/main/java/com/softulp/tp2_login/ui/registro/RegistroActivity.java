@@ -60,9 +60,17 @@ public class RegistroActivity extends AppCompatActivity {
                 String apellido = binding.etApellido.getText().toString();
                 String mail = binding.etMail.getText().toString();
                 String password = binding.etPassword2.getText().toString();
+                String imagen = binding.ivFoto.toString();
 
-                Usuario usuario = new Usuario(dni,nombre,apellido,mail,password);
+                Usuario usuario = new Usuario(dni,nombre,apellido,mail,password,imagen);
                 Api.guardarUsuario(getApplication(),usuario);
+            }
+        });
+
+        binding.btnTomarFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tomarFoto(v);
             }
         });
 
@@ -76,27 +84,28 @@ public class RegistroActivity extends AppCompatActivity {
                 binding.etApellido.setText(usuario.getApellido()+"");
                 binding.etMail.setText(usuario.getMail()+"");
                 binding.etPassword2.setText(usuario.getPassword()+"");
+                binding.ivFoto.setImageURI(Uri.parse(usuario.getImagen()));
             }
         });
 
         Intent intent = getIntent();
         Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");
         mv.recuperarUsuario(usuario);
-//        configView();
+        configView();
     }
 
-//    public void configView(){
-//        imagen1=binding.ivFoto;
-//        et1=binding.etFoto;
-//        validaPermisos();
-//        mv= ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(RegistroActivityViewModel.class);
-//        mv.getFoto().observe(this, new Observer<Bitmap>() {
-//            @Override
-//            public void onChanged(Bitmap bitmap) {
-//                imagen1.setImageBitmap(bitmap);
-//            }
-//        });
-//    }
+    public void configView(){
+        imagen1=binding.ivFoto;
+        //et1=binding.etFoto;
+        validaPermisos();
+        mv= ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(RegistroActivityViewModel.class);
+        mv.getFoto().observe(this, new Observer<Bitmap>() {
+            @Override
+            public void onChanged(Bitmap bitmap) {
+                imagen1.setImageBitmap(bitmap);
+            }
+        });
+    }
     public void tomarFoto(View v){
 //startActivityForResult es otra forma de iniciar una activity, pero esperando desde donde la llamé un resultado
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

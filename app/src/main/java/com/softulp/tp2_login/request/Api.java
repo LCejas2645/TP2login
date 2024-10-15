@@ -36,6 +36,8 @@ public class Api {
                 fos.close();
 
                 Toast.makeText(context,"Dato guardado",Toast.LENGTH_LONG).show();
+                Log.d("Salida", "guardarUsuario: " +"dato: "+usuarios);
+
 
             } catch (FileNotFoundException e) {
                 Toast.makeText(context,"Error al acceder al archivo",Toast.LENGTH_LONG).show();
@@ -55,6 +57,7 @@ public class Api {
                 fos.close();
 
                 Toast.makeText(context,"Dato guardado 2",Toast.LENGTH_LONG).show();
+                Log.d("Salida", "guardarUsuario: " +"dato: "+usuarios.toString());
             } catch (FileNotFoundException e) {
                 Toast.makeText(context,"Error al acceder al archivo",Toast.LENGTH_LONG).show();
             } catch (IOException e) {
