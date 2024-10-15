@@ -79,38 +79,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword2"
         app:layout_constraintVertical_bias="0.356" />
-
-    <ImageView
-        android:id="@+id/ivFoto"
-        android:layout_width="168dp"
-        android:layout_height="153dp"
-        app:layout_constraintBottom_toTopOf="@+id/etDni"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/btnTomarfoto"
-        android:layout_width="138dp"
-        android:layout_height="39dp"
-        android:layout_marginBottom="48dp"
-        android:text="Tomar foto"
-        app:layout_constraintBottom_toTopOf="@+id/etDni"
-        app:layout_constraintEnd_toStartOf="@+id/ivFoto"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etFoto"
-        app:layout_constraintVertical_bias="1.0"
-        android:onClick="tomarFoto"/>
-
-    <EditText
-        android:id="@+id/etFoto"
-        android:layout_width="188dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="foto1.jpg"
-        app:layout_constraintEnd_toStartOf="@+id/ivFoto"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
